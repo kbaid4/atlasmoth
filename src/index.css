@@ -1,13 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;500;600;700&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-color: theme('colors.background');
+  color: theme('colors.text.primary');
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Custom Animation Classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glow-on-hover {
+  transition: all 0.3s ease;
+}
+
+.glow-on-hover:hover {
+  filter: drop-shadow(0 0 8px theme('colors.primary.DEFAULT'));
+}
+
+/* Game-like button styles */
+.game-button {
+  @apply px-6 py-3 rounded-lg font-display text-sm uppercase tracking-wider;
+  @apply transition-all duration-300;
+  @apply border-2 border-primary;
+  @apply bg-primary-dark text-white;
+  @apply shadow-lg hover:shadow-primary/50;
+  @apply hover:translate-y-[-2px];
+}
+
+/* Pixelated elements */
+.pixel-border {
+  box-shadow: 0 0 0 2px #000,
+              0 0 0 4px #fff,
+              0 0 0 6px #000;
 }
