@@ -5,52 +5,75 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-background">
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Animated Floating Elements */}
-        <motion.div 
-          className="absolute w-64 h-64 rounded-full bg-primary-light/10 blur-3xl"
-          animate={{ 
-            x: [0, 30, 0], 
-            y: [0, -50, 0],
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {/* Pixel floating squares */}
+        <motion.div
+          className="absolute w-12 h-12 bg-primary/60 border-4 border-white pixel-border shadow-xl"
+          style={{ top: '12%', left: '8%' }}
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 12, 0],
+            rotate: [0, 15, -10, 0]
+          }}
+          transition={{ repeat: Infinity, repeatType: 'reverse', duration: 9 }}
+        />
+        {/* Diamond shape */}
+        <motion.div
+          className="absolute w-16 h-16 bg-secondary/40 border-2 border-secondary-light rotate-45 shadow-2xl"
+          style={{ top: '20%', right: '14%' }}
+          animate={{
+            y: [0, 40, 0],
+            x: [0, -20, 0],
             scale: [1, 1.2, 1]
           }}
-          transition={{ 
-            repeat: Infinity, 
-            repeatType: "reverse", 
-            duration: 8,
-          }}
-          style={{ top: '10%', left: '10%' }}
+          transition={{ repeat: Infinity, repeatType: 'reverse', duration: 8, delay: 1 }}
         />
-        <motion.div 
-          className="absolute w-96 h-96 rounded-full bg-secondary-light/10 blur-3xl"
-          animate={{ 
-            x: [0, -40, 0], 
-            y: [0, 60, 0],
-            scale: [1, 1.3, 1]
+        {/* Glowing orb with pixel border */}
+        <motion.div
+          className="absolute w-24 h-24 rounded-full bg-accent/30 border-4 border-accent-light pixel-border shadow-accent/40"
+          style={{ bottom: '8%', left: '18%' }}
+          animate={{
+            y: [0, -20, 0],
+            x: [0, 25, 0],
+            scale: [1, 1.14, 1]
           }}
-          transition={{ 
-            repeat: Infinity, 
-            repeatType: "reverse", 
-            duration: 10,
-            delay: 1
-          }}
-          style={{ bottom: '5%', right: '15%' }}
+          transition={{ repeat: Infinity, repeatType: 'reverse', duration: 10, delay: 2 }}
         />
-        <motion.div 
-          className="absolute w-40 h-40 rounded-full bg-accent-light/20 blur-2xl"
-          animate={{ 
-            x: [0, 60, 0], 
-            y: [0, 30, 0],
-            scale: [1, 1.4, 1]
+        {/* Sparkle/star */}
+        <motion.div
+          className="absolute text-2xl text-primary drop-shadow-lg"
+          style={{ top: '32%', left: '35%' }}
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [0, 30, 0]
           }}
-          transition={{ 
-            repeat: Infinity, 
-            repeatType: "reverse", 
-            duration: 7,
-            delay: 2
+          transition={{ repeat: Infinity, repeatType: 'reverse', duration: 4, delay: 2.2 }}
+        >
+          ✨
+        </motion.div>
+        {/* Pixel mini-square */}
+        <motion.div
+          className="absolute w-6 h-6 bg-secondary-light/70 border-2 border-white pixel-border"
+          style={{ bottom: '18%', right: '11%' }}
+          animate={{
+            y: [0, -10, 0],
+            x: [0, 10, 0],
+            rotate: [0, 20, 0]
           }}
-          style={{ top: '30%', right: '25%' }}
+          transition={{ repeat: Infinity, repeatType: 'reverse', duration: 7, delay: 1.7 }}
         />
+        {/* Another sparkle */}
+        <motion.div
+          className="absolute text-xl text-accent drop-shadow"
+          style={{ bottom: '28%', right: '27%' }}
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, -20, 0]
+          }}
+          transition={{ repeat: Infinity, repeatType: 'reverse', duration: 5, delay: 3 }}
+        >
+          ✨
+        </motion.div>
       </div>
 
       {/* Hero Content */}
@@ -113,12 +136,22 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="relative w-full h-80 sm:h-96 lg:h-[500px]">
-            {/* Replace this with your actual hero image or animation */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="pixel-border p-4 bg-surface/30 backdrop-blur-md rounded-lg relative overflow-hidden">
-                <motion.div 
-                  className="w-48 h-48 md:w-64 md:h-64 bg-gradient-to-br from-primary via-secondary to-accent rounded-xl"
+          <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-[460px] xl:h-[520px] flex items-center justify-center">
+            {/* Responsive pixel/gamified hero image */}
+            <div className="flex items-center justify-center w-full h-full">
+              <div className="pixel-border bg-surface/30 backdrop-blur-md rounded-lg relative overflow-hidden flex items-center justify-center
+                w-32 h-32 p-1
+                sm:w-48 sm:h-48 sm:p-2
+                md:w-64 md:h-64 md:p-3
+                lg:w-80 lg:h-80 lg:p-4
+                xl:w-96 xl:h-96 xl:p-6">
+                <motion.div
+                  className="bg-gradient-to-br from-primary via-secondary to-accent rounded-xl flex items-center justify-center
+                    w-20 h-20
+                    sm:w-32 sm:h-32
+                    md:w-44 md:h-44
+                    lg:w-56 lg:h-56
+                    xl:w-72 xl:h-72"
                   animate={{
                     rotate: [0, 90, 180, 270, 360],
                     borderRadius: ["10%", "25%", "50%", "25%", "10%"],
@@ -129,13 +162,13 @@ const Hero = () => {
                     repeat: Infinity,
                   }}
                 >
-                  {/* This is a placeholder for a moth animation or logo */}
+                  {/* Moth logo or animation */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-4xl">🦋</span>
+                    <span className="text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl">🦋</span>
                   </div>
                 </motion.div>
-                
-                <div className="absolute bottom-2 right-2 bg-background/30 backdrop-blur px-2 py-1 rounded text-xs">
+                {/* Studio label, responsive */}
+                <div className="absolute bottom-1.5 right-1.5 bg-background/40 backdrop-blur px-1 py-0.5 rounded text-[9px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-display">
                   AtlasMoth Studios
                 </div>
               </div>
