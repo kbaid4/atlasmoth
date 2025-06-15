@@ -91,7 +91,7 @@ const Blog = () => {
                 onClick={() => setCurrentCategory(category)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   currentCategory === category 
-                    ? 'bg-primary text-white' 
+                    ? 'bg-primary text-black' 
                     : 'bg-surface/50 text-text-secondary hover:bg-surface'
                 }`}
                 whileHover={{ scale: 1.05 }}

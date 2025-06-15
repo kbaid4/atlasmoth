@@ -12,7 +12,7 @@ const samplePosts = [
     title: "The Psychology Behind Gamification in UX Design",
     excerpt: "Explore how game mechanics tap into human psychology to create more engaging digital experiences.",
     date: "2025-05-15",
-    author: "AtlasMoth Team",
+    author: "AtlasMoth",
     featured_image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     body: `<p>Gamification is more than just points and badges. It's about tapping into intrinsic motivation and making digital experiences rewarding and fun. In this article, we explore the core psychological drivers behind gamification and how you can leverage them in UX design...</p><h2>1. Motivation</h2><p>People are motivated by achievement, progress, and recognition. Game mechanics like progress bars, achievements, and leaderboards cater to these needs...</p>`
   },
@@ -91,10 +91,13 @@ const BlogPost = () => {
               />
               {/* Back to Blog */}
               <div className="flex justify-between items-center mt-8">
-                <Link to="/blog" className="game-button">
-                  ← Back to Blog
-                </Link>
-                <span className="text-xs text-text-secondary">Share this post</span>
+                <Link
+  to="/blog"
+  className="px-6 py-2 rounded-lg font-medium text-sm shadow-[0_0_16px_4px_#9D1F15] animate-glow"
+  style={{ backgroundColor: '#9D1F15', color: '#FBF7BA' }}
+>
+  ← Back to Blog
+</Link>
               </div>
             </motion.article>
           ) : (
