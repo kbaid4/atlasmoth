@@ -149,24 +149,28 @@ const Navbar = () => {
             id="mobile-menu"
           >
             <nav className="flex flex-col gap-4 mt-10">
-              <NavLink to="/" active={location.pathname === "/"} onClick={() => setMenuOpen(false)}>
-                Home
-              </NavLink>
-              <NavLink to="/#services" active={location.hash === "#services"} onClick={() => setMenuOpen(false)}>
-                Services
-              </NavLink>
-              <NavLink to="/#how-we-work" active={location.hash === "#how-we-work"} onClick={() => setMenuOpen(false)}>
-                How We Work
-              </NavLink>
-              <NavLink to="/blog" active={location.pathname === "/blog"} onClick={() => setMenuOpen(false)}>
-                Blog
-              </NavLink>
-              <NavLink to="/#contact" active={location.hash === "#contact"} onClick={() => setMenuOpen(false)}>
-                Contact
-              </NavLink>
+              {[{ to: '/', label: 'Home', active: location.pathname === '/' },
+              { to: '/#services', label: 'Services', active: location.hash === '#services' },
+              { to: '/#how-we-work', label: 'How We Work', active: location.hash === '#how-we-work' },
+              { to: '/blog', label: 'Blog', active: location.pathname === '/blog' },
+              { to: '/#contact', label: 'Contact', active: location.hash === '#contact' },
+              ].map(link => (
+                <div className="relative" key={link.label}>
+                  <NavLink
+                    to={link.to}
+                    active={link.active}
+                    onClick={() => setMenuOpen(false)}
+                    idTarget={link.to.startsWith('/#') ? link.to.replace('/#','') : undefined}
+                  >
+                    {link.label}
+                  </NavLink>
+                </div>
+              ))}
             </nav>
             <a
-              href="#contact"
+              href="https://cal.com/kushagrabaid/30-minute-meeting"
+              target="_blank"
+              rel="noopener noreferrer"
               className="game-button font-display font-bold text-base px-6 py-3 rounded-full animate-glow mt-10 shadow-lg focus:outline-none focus:ring-2 focus:ring-primary"
               style={{ minHeight: 48, backgroundColor: '#FBF7BA', color: '#9D1F15' }}
               onClick={() => setMenuOpen(false)}

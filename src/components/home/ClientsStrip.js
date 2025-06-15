@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const ClientsStrip = () => {
@@ -28,50 +28,70 @@ const ClientsStrip = () => {
     { name: 'WeCicada', image: '/ClientStrip/logo (1).png', url: 'https://wecicada.com/' },
   ];
 
+  const containerRef = useRef(null);
+  const contentRef = useRef(null);
+  const [marqueeDistance, setMarqueeDistance] = useState(null);
+
+  useEffect(() => {
+    function updateDistance() {
+      if (containerRef.current && contentRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const contentWidth = contentRef.current.scrollWidth;
+        // Only scroll if content is wider than container
+        setMarqueeDistance(contentWidth > containerWidth ? contentWidth - containerWidth : 0);
+      }
+    }
+    updateDistance();
+    window.addEventListener('resize', updateDistance);
+    return () => window.removeEventListener('resize', updateDistance);
+  }, []);
+
   return (
     <section className="bg-surface py-8 overflow-hidden">
 
       {/* Auto-scrolling marquee effect */}
-      <div className="relative">
-        <motion.div
-          className="flex space-x-16 whitespace-nowrap"
-          animate={{ x: [0, "-180%"] }}
-          transition={{ 
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 15,
-              ease: "linear"
-            },
-          }}
-        >
-          {clients.map((client, index) => (
-            <div 
-              key={`${client.name}-${index}`} 
-              className="flex flex-col items-center justify-center min-w-[120px]"
-            >
-              <a 
-                href={client.url}
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="group flex flex-col items-center hover:scale-105 transition-all"
-                aria-label={`Visit ${client.name}'s website`}
+      <div className="relative overflow-x-hidden">
+        <div ref={containerRef} className="w-full overflow-x-hidden">
+          <motion.div
+            ref={contentRef}
+            className="flex space-x-16 whitespace-nowrap"
+            animate={marqueeDistance !== null ? { x: [0, -marqueeDistance] } : false}
+            transition={marqueeDistance !== null ? {
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 15,
+                ease: "linear"
+              },
+            } : {}}
+          >
+            {clients.map((client, index) => (
+              <div 
+                key={`${client.name}-${index}`} 
+                className="flex flex-col items-center justify-center min-w-[120px]"
               >
-                <img 
-                  src={client.image} 
-                  alt={`${client.name} logo`} 
-                  className="h-12 object-contain mb-2 opacity-70 group-hover:opacity-100 transition-opacity" 
-                />
-                <p className="text-text-secondary text-xs font-medium group-hover:text-primary transition-colors">{client.name}</p>
-              </a>
-            </div>
-          ))}
-        </motion.div>
+                <a 
+                  href={client.url}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group flex flex-col items-center hover:scale-105 transition-all"
+                  aria-label={`Visit ${client.name}'s website`}
+                >
+                  <img 
+                    src={client.image} 
+                    alt={`${client.name} logo`} 
+                    className="h-12 object-contain mb-2 opacity-70 group-hover:opacity-100 transition-opacity" 
+                  />
+                  <p className="text-text-secondary text-xs font-medium group-hover:text-primary transition-colors">{client.name}</p>
+                </a>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+        {/* Gradient overlays to fade edges */}
+        <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-surface to-transparent z-10"></div>
+        <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-surface to-transparent z-10"></div>
       </div>
-
-      {/* Gradient overlays to fade edges */}
-      <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-surface to-transparent z-10"></div>
-      <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-surface to-transparent z-10"></div>
     </section>
   );
 };
