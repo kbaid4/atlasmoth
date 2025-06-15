@@ -81,7 +81,7 @@ const Hero = () => {
       <div className="container mx-auto px-6 z-10 flex flex-col items-center justify-center">
         <div className="relative flex items-center justify-center mb-2">
           <img
-            src="/Moth+drops 1.gif"
+            src="/moth-drops-1.gif"
             alt="AtlasMoth butterfly animation"
             className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-28 xl:h-28 object-contain drop-shadow-xl"
             draggable="false"
