@@ -43,8 +43,8 @@ module.exports = {
           '50%': { transform: 'translateY(-20px)' },
         },
         'glow': {
-          '0%': { boxShadow: '0 0 5px rgba(0, 123, 255, 0.7)' },
-          '100%': { boxShadow: '0 0 20px rgba(0, 123, 255, 0.9), 0 0 30px rgba(0, 123, 255, 0.5)' },
+          '0%': { boxShadow: '0 0 5px rgba(157, 31, 21, 0.7)' },
+          '100%': { boxShadow: '0 0 20px rgba(157, 31, 21, 0.9), 0 0 30px rgba(157, 31, 21, 0.5)' },
         }
       }
     },

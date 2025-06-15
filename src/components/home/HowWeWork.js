@@ -96,7 +96,7 @@ const HowWeWork = () => {
           </motion.div>
           <h2 className="text-4xl font-bold mb-4">How We Work</h2>
           <p className="text-text-secondary max-w-xl mx-auto">
-            Embark on a journey with AtlasMoth as we transform your ideas into engaging digital experiences. Follow our quest line to success!
+            We transform your ideas into engaging digital experiences. Follow our quest line to success!
           </p>
         </motion.div>
 

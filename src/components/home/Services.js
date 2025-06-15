@@ -16,9 +16,9 @@ const Services = () => {
     },
     {
       id: 2,
-      title: "Web Design & Development",
+      title: "Web Development",
       icon: "🌐",
-      description: "Crafting beautiful websites and robust back-ends for seamless experiences",
+      description: "Crafting beautiful websites and robust websites for seamless experiences",
       features: ["Responsive Design", "CMS Integration", "SEO", "Performance Optimisation", "Cross-Browser Support"],
       color: "from-secondary to-secondary-dark"
     },
@@ -51,7 +51,7 @@ const Services = () => {
       title: "No-Code Development",
       icon: "⚡",
       description: "Rapid MVPs & internal tools built with leading no-code platforms",
-      features: ["Webflow", "Bubble", "Airtable", "Zapier", "Automation"],
+      features: ["Webflow", "Bubble", "Airtable", "Zapier", "Lovable"],
       color: "from-yellow-400 to-orange-500"
     },
     {
@@ -213,7 +213,7 @@ const Services = () => {
           </motion.div>
           <h2 className="text-4xl font-bold mb-4">Our Digital Power-Ups</h2>
           <p className="text-text-secondary max-w-xl mx-auto">
-            Choose your adventure with our specialized services designed to transform your digital product into an engaging experience.
+            Our specialized services designed to transform your digital product into an engaging experience.
           </p>
         </motion.div>
 

@@ -111,6 +111,20 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               style={{ backgroundColor: '#FBF7BA', color: '#9D1F15', borderColor: '#9D1F15', padding: '40px 40px', fontSize: '25px' }}
+              onClick={() => {
+                window.open('mailto:kbaid@atlasmoth.com', '_blank', 'noopener noreferrer');
+              }}
+            >
+            <span className="font-bold" style={{ fontSize: '25px' }}>Get Free UX Audit</span>
+            </motion.button>
+            <motion.button 
+              className="game-button flex items-center gap-2 font-bold shadow-[0_0_12px_2px_#9D1F15] border"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              style={{ backgroundColor: '#9D1F15', color: '#FBF7BA', borderColor: '#9D1F15', padding: '40px 40px', fontSize: '25px' }}
+              onClick={() => {
+                window.open('https://cal.com/kushagrabaid/30-minute-meeting', '_blank', 'noopener noreferrer');
+              }}
             >
             <span className="font-bold" style={{ fontSize: '25px' }}>Book Your Quest</span>
             </motion.button>

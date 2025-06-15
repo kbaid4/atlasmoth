@@ -58,6 +58,7 @@ const Navbar = () => {
             to="/"
             active={location.pathname === "/" && (!location.hash || location.hash === "#hero")}
             idTarget="hero"
+            onClick={() => { window.location.hash = ""; }}
           >
             Home
           </NavLink>
@@ -94,11 +95,11 @@ const Navbar = () => {
           className="hidden md:block"
         >
           <a 
-            href="#contact"
+            href="https://cal.com/kushagrabaid/30-minute-meeting"
             className="game-button font-display font-bold text-xs px-4 py-2 rounded-full border shadow-[0_0_12px_2px_#9D1F15]"
             style={{ backgroundColor: '#FBF7BA', color: '#9D1F15', borderColor: '#9D1F15' }}
           >
-            Get Free UX Audit
+            BOOK A CALL
           </a>
         </motion.div>
 
@@ -171,7 +172,7 @@ const Navbar = () => {
               onClick={() => setMenuOpen(false)}
               tabIndex={0}
             >
-              ✨ Get Free UX Audit
+              BOOK A CALL
             </a>
           </motion.div>
         </motion.div>
@@ -184,28 +185,18 @@ const Navbar = () => {
 
 const NavLink = ({ children, to, active, idTarget, onClick }) => {
   const [hovered, setHovered] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
-  const showUnderline = hovered || active || isClicked;
-  
-  // Reset clicked state when active state changes
-  useEffect(() => {
-    if (active) setIsClicked(false);
-  }, [active]);
-  
+
   return (
     <Link
       to={to}
       className={`nav-link relative font-medium text-sm px-1 py-2 transition-all duration-300 ${
-        active || isClicked 
-          ? 'text-primary' 
-          : 'text-text-primary'
+        active ? 'text-primary' : 'text-text-primary'
       }`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onFocus={() => setHovered(true)}
       onBlur={() => setHovered(false)}
       onClick={e => {
-        setIsClicked(true); // Immediately set clicked state
         if (idTarget && window.location.pathname === '/' && document.getElementById(idTarget)) {
           e.preventDefault();
           document.getElementById(idTarget).scrollIntoView({ behavior: 'smooth' });
@@ -219,7 +210,7 @@ const NavLink = ({ children, to, active, idTarget, onClick }) => {
         layoutId="underline"
         className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"
         initial={{ opacity: 0, scaleX: 0 }}
-        animate={{ opacity: showUnderline ? 1 : 0, scaleX: showUnderline ? 1 : 0 }}
+        animate={{ opacity: active || hovered ? 1 : 0, scaleX: active || hovered ? 1 : 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         style={{ transformOrigin: 'center' }}
       />

@@ -6,7 +6,11 @@ import './App.css';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import Cookies from './pages/Cookies';
 import NotFound from './pages/NotFound';
+import CookieConsent from './components/CookieConsent';
 
 // Context providers can be added here later if needed
 
@@ -40,8 +44,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/cookies" element={<Cookies />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieConsent />
       </div>
     </Router>
   );

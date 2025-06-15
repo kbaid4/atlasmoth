@@ -4,6 +4,30 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  // Newsletter subscribe state and handler
+  const [newsletterStatus, setNewsletterStatus] = React.useState(null);
+  const [newsletterLoading, setNewsletterLoading] = React.useState(false);
+
+  const handleNewsletterSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.querySelector('input[type="email"]').value;
+    if (!email) {
+      setNewsletterStatus({ type: 'error', message: 'Please enter your email.' });
+      return;
+    }
+    setNewsletterLoading(true);
+    setNewsletterStatus(null);
+    // Open Beehiiv subscribe page in new tab with email prefilled
+    const url = email
+      ? `https://www.atlasmothnewsletter.com/subscribe?email=${encodeURIComponent(email)}`
+      : 'https://www.atlasmothnewsletter.com/subscribe';
+    window.open(url, '_blank', 'noopener noreferrer');
+    setNewsletterStatus({ type: 'success', message: 'Check the new tab to finish subscribing!' });
+    setNewsletterLoading(false);
+    form.reset();
+  };
+
 
   return (
     <footer className="bg-background border-t border-white/10 relative overflow-hidden">
@@ -39,7 +63,9 @@ Duolingo for Design & Engineering</p>
   </motion.a>
   {/* Newsletter */}
   <motion.a
-    href="/newsletter"
+    href="https://www.atlasmothnewsletter.com/"
+    target="_blank"
+    rel="noopener noreferrer"
     whileHover={{ y: -3, scale: 1.1 }}
     whileTap={{ scale: 0.95 }}
     className="w-8 h-8 rounded-full flex items-center justify-center bg-surface hover:bg-primary transition-colors duration-300"
@@ -49,7 +75,7 @@ Duolingo for Design & Engineering</p>
   </motion.a>
   {/* Instagram */}
   <motion.a
-    href="https://instagram.com/atlasmoth.design"
+    href="https://www.instagram.com/atlasmothdesign/"
     target="_blank"
     rel="noopener noreferrer"
     whileHover={{ y: -3, scale: 1.1 }}
@@ -61,7 +87,7 @@ Duolingo for Design & Engineering</p>
   </motion.a>
   {/* Twitter */}
   <motion.a
-    href="https://twitter.com/atlasmothdesign"
+    href="https://x.com/atlasmothdesign"
     target="_blank"
     rel="noopener noreferrer"
     whileHover={{ y: -3, scale: 1.1 }}
@@ -73,7 +99,7 @@ Duolingo for Design & Engineering</p>
   </motion.a>
   {/* TikTok */}
   <motion.a
-    href="https://tiktok.com/@atlasmoth.design"
+    href="https://www.tiktok.com/@atlasmothdesign"
     target="_blank"
     rel="noopener noreferrer"
     whileHover={{ y: -3, scale: 1.1 }}
@@ -85,7 +111,7 @@ Duolingo for Design & Engineering</p>
   </motion.a>
   {/* LinkedIn */}
   <motion.a
-    href="https://linkedin.com/company/atlasmoth-design"
+    href="https://www.linkedin.com/company/atlasmoth"
     target="_blank"
     rel="noopener noreferrer"
     whileHover={{ y: -3, scale: 1.1 }}
@@ -97,7 +123,7 @@ Duolingo for Design & Engineering</p>
   </motion.a>
   {/* Threads */}
   <motion.a
-    href="https://threads.net/@atlasmoth.design"
+    href="https://www.threads.com/@atlasmothdesign"
     target="_blank"
     rel="noopener noreferrer"
     whileHover={{ y: -3, scale: 1.1 }}
@@ -109,12 +135,12 @@ Duolingo for Design & Engineering</p>
   </motion.a>
   {/* Book a Call */}
   <motion.a
-    href="https://calendly.com/atlasmoth/intro-call"
+    href="https://cal.com/kushagrabaid/30-minute-meeting"
     target="_blank"
     rel="noopener noreferrer"
     whileHover={{ y: -3, scale: 1.05 }}
     whileTap={{ scale: 0.98 }}
-    className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary to-accent text-deepred font-semibold shadow hover:from-secondary hover:to-primary-dark transition-colors duration-300"
+    className="flex items-center gap-2 px-4 py-2 rounded-full font-semibold shadow transition-colors duration-300" style={{ backgroundColor: '#FBF7BA', color: '#9D1F15' }}
     aria-label="Book a Call"
   >
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="6" fill="#ff6b99" stroke="#9D1F15" strokeWidth="2"/><path d="M8 10h8v2H8zm0 4h5v2H8z" fill="#FBF7BA"/><circle cx="16" cy="8" r="2" fill="#FFC233"/></svg>
@@ -131,9 +157,12 @@ Duolingo for Design & Engineering</p>
           <div className="md:ml-auto md:text-right lg:col-start-9 lg:col-span-4">
   <h3 className="text-white font-semibold mb-4">Unlock Exclusive Content</h3>
   <p className="text-text-secondary text-sm mb-4">
-    Subscribe to get special rewards, cheat codes, and digital goodies.
+  Subscribe to get design learnings to your inbox for free!
   </p>
-  <form className="flex flex-col space-y-3 md:items-end">
+  <form
+    className="flex flex-col space-y-3 md:items-end"
+    onSubmit={handleNewsletterSubmit}
+  >
     <div className="relative w-full md:w-80">
       <input 
         type="email" 
@@ -145,10 +174,16 @@ Duolingo for Design & Engineering</p>
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       type="submit"
-      className="px-6 py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-medium text-sm"
+      className="px-6 py-2 rounded-lg font-medium text-sm shadow-[0_0_16px_4px_#9D1F15] animate-glow disabled:opacity-60" style={{ backgroundColor: '#9D1F15', color: '#FBF7BA' }}
+      disabled={newsletterLoading}
     >
-      🎮 Get Exclusive Access
+      {newsletterLoading ? 'Joining...' : 'Join For Free!'}
     </motion.button>
+    {newsletterStatus && (
+      <p className={`mt-2 text-sm ${newsletterStatus.type === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+        {newsletterStatus.message}
+      </p>
+    )}
   </form>
 </div>
         </div>
