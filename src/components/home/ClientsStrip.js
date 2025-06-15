@@ -9,7 +9,7 @@ const ClientsStrip = () => {
     { name: 'Heerema Marine Contractors', image: 'ClientStrip/heerema_logos-edited-spacing-for-website-HMC.png', url: 'https://www.heerema.com/' },
     { name: 'HanzeMag', image: '/ClientStrip/REGULAR-CHERRY.png', url: 'https://hanzemag.nl/' },
     { name: 'Hanze UAS', image: '/ClientStrip/images.png', url: 'https://www.hanze.nl/nl' },
-    { name: 'Rotterdam UAS', image: '/ClientStrip/Rotterdam_University_Logo.gif', url: 'https://www.rotterdamuas.com/' },
+    { name: 'Rotterdam UAS', image: '/ClientStrip/Screen-Shot-2018-02-19-at-4.03.50-PM-768x260-1-pd3mtz41q7q9d74g1gwpnzf7hvsay9lqq8r4ahgf8o-1-600x203.png', url: 'https://www.rotterdamuas.com/' },
     { name: 'ESN', image: '/ClientStrip/cropped-201902-esn-STAR-master-RGB.png', url: 'https://www.esn-groningen.nl/' },
     { name: 'Interactive Games Entertainment', image: '/ClientStrip/Screenshot 2025-06-14 at 23.52.04.png', url: 'https://interactivegamesentertainment.com/' },
     { name: 'Space4Good', image: '/ClientStrip/Screenshot 2025-06-14 at 23.44.01.png', url: 'https://www.space4good.com/' },
