@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import MusicToggle from './MusicToggle';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-background">
+    <section id="hero" className="relative min-h-screen flex items-start pb-10 overflow-hidden bg-background" style={{ paddingTop: '210px' }}>
       {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none z-0">
         {/* Pixel floating squares */}
@@ -77,104 +78,48 @@ const Hero = () => {
       </div>
 
       {/* Hero Content */}
-      <div className="container mx-auto px-6 z-10 flex flex-col-reverse lg:flex-row items-center">
+      <div className="container mx-auto px-6 z-10 flex flex-col items-center justify-center">
+        <div className="relative flex items-center justify-center mb-2">
+          <img
+            src="/Moth+drops 1.gif"
+            alt="AtlasMoth butterfly animation"
+            className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-28 xl:h-28 object-contain drop-shadow-xl"
+            draggable="false"
+          />
+          <MusicToggle />
+        </div>
         <motion.div 
-          className="lg:w-1/2 flex flex-col items-start space-y-8 pt-10 lg:pt-0"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          className="flex flex-col items-center space-y-4 text-center"
+          initial={{ opacity: 0, x: -80 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, type: 'spring' }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            <span className="block text-white">Elevating user experience with</span>
-            <span className="block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">the magic of Gamification</span>
+            <span className="block text-white">Elevating UX With The Magic Of</span>
+            <span className="block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mt-[8px] text-center">Gamification</span>
           </h1>
 
-          <h2 className="font-display text-xl md:text-2xl text-text-secondary">
-            Duolingo for Design
+          <h2 className="font-display text-[#FBF7BA] italic text-center w-full mx-auto" style={{ fontSize: '15px' }}>
+            <span className="md:text-[18px]">Duolingo for Design & Engineering</span>
           </h2>
 
-          <p className="text-text-secondary text-lg max-w-lg">
-            We transform ordinary digital experiences into engaging adventures that keep users coming back for more. Let's level up your digital presence together.
-          </p>
 
-          <div className="flex flex-wrap gap-4">
+
+          <div className="flex flex-wrap gap-4 justify-center w-full pt-8">
             <motion.button 
-              className="game-button flex items-center gap-2"
+              className="game-button flex items-center gap-2 font-bold shadow-[0_0_12px_2px_#9D1F15] border"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              style={{ backgroundColor: '#FBF7BA', color: '#9D1F15', borderColor: '#9D1F15', padding: '40px 40px', fontSize: '25px' }}
             >
-              📞 Book Your Quest
-            </motion.button>
-
-            <motion.button
-              className="px-6 py-3 border-2 border-primary/50 text-primary rounded-lg font-display text-sm uppercase tracking-wider hover:bg-primary/10 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              🎮 View Our Work
+            <span className="font-bold" style={{ fontSize: '25px' }}>Book Your Quest</span>
             </motion.button>
           </div>
 
-          {/* Gaming-style badges */}
-          <div className="flex items-center gap-3 bg-surface/50 backdrop-blur-sm px-4 py-2 rounded-xl">
-            <div className="h-10 w-10 rounded-full bg-primary-dark flex items-center justify-center">
-              <span className="text-white font-bold">99%</span>
-            </div>
-            <div>
-              <p className="text-text-primary text-xs">User Satisfaction</p>
-              <div className="w-36 h-2 bg-gray-700 rounded-full mt-1">
-                <div className="w-[99%] h-full bg-gradient-to-r from-primary to-secondary rounded-full"></div>
-              </div>
-            </div>
-          </div>
+
         </motion.div>
 
-        {/* Hero Image/Animation */}
-        <motion.div 
-          className="lg:w-1/2 relative"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-[460px] xl:h-[520px] flex items-center justify-center">
-            {/* Responsive pixel/gamified hero image */}
-            <div className="flex items-center justify-center w-full h-full">
-              <div className="pixel-border bg-surface/30 backdrop-blur-md rounded-lg relative overflow-hidden flex items-center justify-center
-                w-32 h-32 p-1
-                sm:w-48 sm:h-48 sm:p-2
-                md:w-64 md:h-64 md:p-3
-                lg:w-80 lg:h-80 lg:p-4
-                xl:w-96 xl:h-96 xl:p-6">
-                <motion.div
-                  className="bg-gradient-to-br from-primary via-secondary to-accent rounded-xl flex items-center justify-center
-                    w-20 h-20
-                    sm:w-32 sm:h-32
-                    md:w-44 md:h-44
-                    lg:w-56 lg:h-56
-                    xl:w-72 xl:h-72"
-                  animate={{
-                    rotate: [0, 90, 180, 270, 360],
-                    borderRadius: ["10%", "25%", "50%", "25%", "10%"],
-                  }}
-                  transition={{
-                    duration: 8,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                  }}
-                >
-                  {/* Moth logo or animation */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl">🦋</span>
-                  </div>
-                </motion.div>
-                {/* Studio label, responsive */}
-                <div className="absolute bottom-1.5 right-1.5 bg-background/40 backdrop-blur px-1 py-0.5 rounded text-[9px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-display">
-                  AtlasMoth Studios
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+
       </div>
 
       {/* Scroll Indicator */}

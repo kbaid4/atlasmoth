@@ -17,108 +17,140 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Logo & Company Info */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-4">
             <Link to="/" className="flex items-center mb-5">
-              <div className="font-display text-2xl text-white">
-                <span className="text-primary">Atlas</span>
-                <span className="text-secondary">Moth</span>
-              </div>
-            </Link>
+  <img src="/Logo.png" alt="AtlasMoth Logo" className="h-10 w-auto" />
+</Link>
             <p className="text-text-secondary mb-4 max-w-sm">
-              Transforming digital experiences through design, gamification, and strategic development. Level up your business with AtlasMoth.
-            </p>
-            <div className="flex space-x-4 mt-6">
-              {/* Social Media Icons */}
-              {[
-                { platform: 'twitter', icon: 'X' },
-                { platform: 'linkedin', icon: 'in' },
-                { platform: 'instagram', icon: 'IG' }
-              ].map((social) => (
-                <motion.a
-                  key={social.platform}
-                  href={`#${social.platform}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -3, scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-8 h-8 rounded-full flex items-center justify-center bg-surface text-white hover:bg-primary transition-colors duration-300"
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
-            </div>
+            Elevating UX With The Magic Of Gamification
+Duolingo for Design & Engineering</p>
+            <div className="flex flex-wrap gap-3 mt-6 items-center">
+  {/* Email */}
+  <motion.a
+    href="mailto:kbaid@atlasmoth.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{ y: -3, scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+    className="w-8 h-8 rounded-full flex items-center justify-center bg-surface hover:bg-primary transition-colors duration-300"
+    aria-label="Email"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2" fill="#FBF7BA" stroke="#9D1F15" strokeWidth="2"/><path d="M4 7l8 6 8-6" stroke="#9D1F15" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+  </motion.a>
+  {/* Newsletter */}
+  <motion.a
+    href="/newsletter"
+    whileHover={{ y: -3, scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+    className="w-8 h-8 rounded-full flex items-center justify-center bg-surface hover:bg-primary transition-colors duration-300"
+    aria-label="Newsletter"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2" fill="#FFC233" stroke="#9D1F15" strokeWidth="2"/><path d="M4 7l8 6 8-6" stroke="#9D1F15" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><circle cx="12" cy="12" r="3" fill="#ff6b99"/></svg>
+  </motion.a>
+  {/* Instagram */}
+  <motion.a
+    href="https://instagram.com/atlasmoth.design"
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{ y: -3, scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+    className="w-8 h-8 rounded-full flex items-center justify-center bg-surface hover:bg-primary transition-colors duration-300"
+    aria-label="Instagram"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" fill="#FBF7BA" stroke="#9D1F15" strokeWidth="2"/><circle cx="12" cy="12" r="5" fill="#ff6b99"/><circle cx="17.5" cy="6.5" r="1.5" fill="#9D1F15"/></svg>
+  </motion.a>
+  {/* Twitter */}
+  <motion.a
+    href="https://twitter.com/atlasmothdesign"
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{ y: -3, scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+    className="w-8 h-8 rounded-full flex items-center justify-center bg-surface hover:bg-primary transition-colors duration-300"
+    aria-label="Twitter"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="6" fill="#FBF7BA" stroke="#9D1F15" strokeWidth="2"/><path d="M8 15c6 0 9-5 9-9v-.5A6.5 6.5 0 0 0 20 3a6.5 6.5 0 0 1-2.36.65A3.28 3.28 0 0 0 19.5 2a6.5 6.5 0 0 1-2.07.79A3.28 3.28 0 0 0 12 5.5c0 .26.03.52.09.77C8.09 6.09 4.54 4.13 2.5 1.5c-.36.6-.57 1.3-.57 2.05 0 1.41.72 2.66 1.81 3.39A3.23 3.23 0 0 1 2 6.1v.04c0 1.97 1.4 3.62 3.26 4-.34.09-.7.14-1.07.14-.26 0-.51-.03-.76-.07.51 1.6 2 2.77 3.76 2.8A6.57 6.57 0 0 1 2 18.58 9.29 9.29 0 0 0 8 20c7.55 0 11.68-6.26 11.68-11.68 0-.18-.01-.36-.02-.54A8.36 8.36 0 0 0 22 3.5c-.66.29-1.36.48-2.1.56A3.28 3.28 0 0 0 20 3z" fill="#9D1F15"/></svg>
+  </motion.a>
+  {/* TikTok */}
+  <motion.a
+    href="https://tiktok.com/@atlasmoth.design"
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{ y: -3, scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+    className="w-8 h-8 rounded-full flex items-center justify-center bg-surface hover:bg-primary transition-colors duration-300"
+    aria-label="TikTok"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="6" fill="#FBF7BA" stroke="#9D1F15" strokeWidth="2"/><path d="M14.5 7V17a4.5 4.5 0 1 1-3-4.24V7h3.5z" fill="#ff6b99"/><circle cx="17.5" cy="7.5" r="1.5" fill="#9D1F15"/></svg>
+  </motion.a>
+  {/* LinkedIn */}
+  <motion.a
+    href="https://linkedin.com/company/atlasmoth-design"
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{ y: -3, scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+    className="w-8 h-8 rounded-full flex items-center justify-center bg-surface hover:bg-primary transition-colors duration-300"
+    aria-label="LinkedIn"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" fill="#FBF7BA" stroke="#9D1F15" strokeWidth="2"/><rect x="6" y="10" width="2.5" height="7" fill="#9D1F15"/><rect x="15.5" y="13" width="2.5" height="4" fill="#9D1F15"/><circle cx="7.25" cy="7.25" r="1.25" fill="#ff6b99"/><rect x="10" y="10" width="2.5" height="7" fill="#9D1F15"/></svg>
+  </motion.a>
+  {/* Threads */}
+  <motion.a
+    href="https://threads.net/@atlasmoth.design"
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{ y: -3, scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+    className="w-8 h-8 rounded-full flex items-center justify-center bg-surface hover:bg-primary transition-colors duration-300"
+    aria-label="Threads"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="6" fill="#FBF7BA" stroke="#9D1F15" strokeWidth="2"/><path d="M12 7c2.5 0 4.5 1.5 4.5 4.5S14.5 16 12 16s-4.5-1.5-4.5-4.5S9.5 7 12 7z" stroke="#9D1F15" strokeWidth="2"/><path d="M12 10.5c.83 0 1.5.67 1.5 1.5S12.83 13.5 12 13.5 10.5 12.83 10.5 12s.67-1.5 1.5-1.5z" fill="#ff6b99"/></svg>
+  </motion.a>
+  {/* Book a Call */}
+  <motion.a
+    href="https://calendly.com/atlasmoth/intro-call"
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{ y: -3, scale: 1.05 }}
+    whileTap={{ scale: 0.98 }}
+    className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary to-accent text-deepred font-semibold shadow hover:from-secondary hover:to-primary-dark transition-colors duration-300"
+    aria-label="Book a Call"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="6" fill="#ff6b99" stroke="#9D1F15" strokeWidth="2"/><path d="M8 10h8v2H8zm0 4h5v2H8z" fill="#FBF7BA"/><circle cx="16" cy="8" r="2" fill="#FFC233"/></svg>
+    <span className="hidden sm:inline">Book a Call</span>
+  </motion.a>
+</div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Navigation</h3>
-            <ul className="space-y-2">
-              {[
-                { name: 'Home', path: '/' },
-                { name: 'Services', path: '/#services' },
-                { name: 'How We Work', path: '/#how-we-work' },
-                { name: 'Blog', path: '/blog' },
-                { name: 'Contact', path: '/#contact' }
-              ].map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.path}
-                    className="text-text-secondary hover:text-primary transition-colors duration-300"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          
 
-          {/* Services */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
-              {[
-                'UX/UI Design',
-                'Gamification',
-                'Frontend Development',
-                'Digital Strategy',
-                'Branding'
-              ].map((service) => (
-                <li key={service}>
-                  <Link 
-                    to="/#services"
-                    className="text-text-secondary hover:text-primary transition-colors duration-300"
-                  >
-                    {service}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           {/* Newsletter */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Unlock Exclusive Content</h3>
-            <p className="text-text-secondary text-sm mb-4">
-              Subscribe to get special rewards, cheat codes, and digital goodies.
-            </p>
-            <form className="flex flex-col space-y-3">
-              <div className="relative">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="w-full px-4 py-2 bg-surface rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
-                />
-              </div>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                className="px-4 py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-medium text-sm"
-              >
-                🎮 Get Exclusive Access
-              </motion.button>
-            </form>
-          </div>
+          <div className="md:ml-auto md:text-right lg:col-start-9 lg:col-span-4">
+  <h3 className="text-white font-semibold mb-4">Unlock Exclusive Content</h3>
+  <p className="text-text-secondary text-sm mb-4">
+    Subscribe to get special rewards, cheat codes, and digital goodies.
+  </p>
+  <form className="flex flex-col space-y-3 md:items-end">
+    <div className="relative w-full md:w-80">
+      <input 
+        type="email" 
+        placeholder="Enter your email" 
+        className="w-full px-6 py-2 bg-surface rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+      />
+    </div>
+    <motion.button
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      type="submit"
+      className="px-6 py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-medium text-sm"
+    >
+      🎮 Get Exclusive Access
+    </motion.button>
+  </form>
+</div>
         </div>
 
         {/* Bottom Copyright */}

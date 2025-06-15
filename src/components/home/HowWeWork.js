@@ -129,12 +129,7 @@ const HowWeWork = () => {
 
                 {/* Content Card */}
                 <div className={`w-full md:w-[calc(50%-2.5rem)] bg-background/50 backdrop-blur-sm p-6 rounded-xl border border-white/10`}>
-                  <div className="flex justify-between items-center mb-3">
-                    <h3 className="text-xl font-bold">{step.title}</h3>
-                    <div className="px-3 py-1 bg-surface/80 rounded-full">
-                      <span className="text-xs font-display text-secondary">{step.level} • {step.xp}</span>
-                    </div>
-                  </div>
+                  <div className="mb-3"><h3 className="text-xl font-bold">{step.title}</h3></div>
                   <p className="text-text-secondary">{step.description}</p>
                   
                   {/* Progress Bar */}
@@ -158,24 +153,6 @@ const HowWeWork = () => {
             ))}
           </div>
         </div>
-
-        {/* Call to Action */}
-        <motion.div 
-          className="mt-20 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <p className="text-lg text-text-secondary mb-6">Ready to start your journey?</p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="game-button flex items-center gap-2 mx-auto"
-          >
-            <span>🧙‍♂️ Start Your Quest</span>
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );

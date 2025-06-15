@@ -5,13 +5,22 @@
 /* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;500;600;700&display=swap');
 
-body {
+html, body {
   margin: 0;
   background-color: theme('colors.background');
   color: theme('colors.text.primary');
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force Poppins everywhere */
+*, *::before, *::after {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif !important;
 }
 
 /* Custom Animation Classes */
@@ -33,8 +42,11 @@ body {
   @apply transition-all duration-300;
   @apply border-2 border-primary;
   @apply bg-primary-dark text-white;
-  @apply shadow-lg hover:shadow-primary/50;
+  box-shadow: 0 0 12px 2px #9D1F15;
   @apply hover:translate-y-[-2px];
+}
+.game-button:hover {
+  box-shadow: 0 0 12px 2px #9D1F15;
 }
 
 /* Pixelated elements */

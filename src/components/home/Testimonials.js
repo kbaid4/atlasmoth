@@ -5,27 +5,94 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      quote: "AtlasMoth transformed our outdated website into an engaging platform that's increased user retention by 70%. Their gamification approach made all the difference!",
-      author: "Sarah Johnson",
-      role: "CMO, TechVision",
-      avatar: "👩‍💼",
-      rating: 5
+      quote: "AtlasMoth is a pleasure to work with. They take feedback well and deliver results promptly. I highly recommend them.",
+      author: "Espen Sogn",
+      role: "Studio Head at Jotun Games",
+      image: "/Testimony/1696928938478.jpeg",
     },
     {
       id: 2,
-      quote: "The team at AtlasMoth understood exactly what we needed. They delivered a playful yet professional design that perfectly represents our brand.",
-      author: "Michael Chen",
-      role: "Founder, Innovate Learning",
-      avatar: "👨‍💻",
-      rating: 5
+      quote: "AtlasMoth improved Space4Good’s UI/UX by refining design guidelines and enhancing user experience through workshops, fieldwork, and research.",
+      author: "Mathieu Aillerie",
+      role: "Product Manager at Space4Good",
+      image: "/Testimony/1712907533175.jpeg",
     },
     {
       id: 3,
-      quote: "Working with AtlasMoth was a game-changer for our app. User engagement is up 85% and our conversion rate has doubled since launch.",
-      author: "Alex Rodriguez",
-      role: "Product Manager, AppStarters",
-      avatar: "🧑‍🚀",
-      rating: 4.5
+      quote: "Great working with AtlasMoth. They quickly understand the user needs even if the topic content is new.",
+      author: "Waas Thissen",
+      role: "Researcher at Louis Bolk Institute",
+      image: "/Testimony/1739807290363.jpeg",
+    },
+    {
+      id: 4,
+      quote: "AtlasMoth's strong mindset and design skills accelerated development and made them a pleasure to work with.",
+      author: "Joeri van Nieuwkoop",
+      role: "Frontend Developer at Heerema(Betabit)",
+      image: "/Testimony/1580850126626.jpeg",
+    },
+    {
+      id: 5,
+      quote: "AtlasMoth is a highly recommended, communicative, and versatile UI/UX agency great for all-around product design.",
+      author: "Ramadhan",
+      role: "GeoAI Engineer at Space4Good",
+      image: "/Testimony/1732226687680.jpeg",
+    },
+    {
+      id: 6,
+      quote: "AtlasMoth brought invaluable design expertise and proactively enhanced our MVP with a strong focus on user experience.",
+      author: "Neville Starke",
+      role: "Co-founder at Crystale",
+      image: "/Testimony/1712331163041.jpeg",
+    },
+    {
+      id: 7,
+      quote: "AtlasMoth consistently delivered creative, engaging content on time, demonstrating strong talent and a reliable work ethic.",
+      author: "Chris Wind",
+      role: "Head Editor at HanzeMag",
+      image: "/Testimony/1516587918076.jpeg",
+    },
+    {
+      id: 8,
+      quote: "AtlasMoth was a pleasure to work with—open to feedback, receptive to constructive criticism, and easy to connect with personally.",
+      author: "Max Bramlage",
+      role: "Senior Recruiter at Worldwiders Global Recruitment",
+      image: "/Testimony/1706042787895.jpeg",
+    },
+    {
+      id: 9,
+      quote: "AtlasMoth delivers exceptional, user-centered design with remarkable creativity, precision, and impact.",
+      author: "Abhishek Giri",
+      role: "Senior Software Engineer at DataPebbles",
+      image: "/Testimony/1642168249394.jpeg",
+    },
+    {
+      id: 10,
+      quote: "AtlasMoth is a talented, collaborative design team that thrives on feedback and consistently pushes creative boundaries.",
+      author: "Vitalii Lukyanov",
+      role: "Software Engineer at XPAR Vision B.V.",
+      image: "/Testimony/1563028697560.jpeg",
+    },
+    {
+      id: 11,
+      quote: "We collaborated on various projects, and AtlasMoth team's creativity and adaptability in design always shone through.",
+      author: "Joël Zweerink",
+      role: "Project Manager for Crypto Projects",
+      image: "/Testimony/1745607025538.jpeg",
+    },
+    {
+      id: 12,
+      quote: "Working with AtlasMoth for over 3 years has been truly inspiring—their balanced approach to life and diverse, purpose-driven team continually motivates me to grow.",
+      author: "Jordan Walsh",
+      role: "Game Marketing Lead at LuckyKat",
+      image: "/Testimony/Screenshot 2025-06-15 at 01.59.07.png",
+    },
+    {
+      id: 13,
+      quote: "The AtlasMoth team is a disciplined, thoughtful, and proactive group with a genuine drive to support others and a strong “can-do” spirit.",
+      author: "Robin Bos",
+      role: "Co-founder at K.B. Consultancy",
+      image: "/Testimony/1749629216344.jpeg",
     }
   ];
 
@@ -112,7 +179,7 @@ const Testimonials = () => {
 
         {/* Testimonials Carousel */}
         <div className="relative max-w-3xl mx-auto">
-          <div className="overflow-hidden">
+          <div className="overflow-hidden relative min-h-96 md:min-h-[460px]">
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={currentIndex}
@@ -125,36 +192,32 @@ const Testimonials = () => {
                   x: { type: "spring", stiffness: 300, damping: 30 },
                   opacity: { duration: 0.2 }
                 }}
-                className="bg-surface/50 backdrop-blur-sm p-8 md:p-10 rounded-2xl border border-white/10"
+                className="absolute inset-0 bg-surface/50 backdrop-blur-sm p-8 md:p-10 rounded-2xl border border-white/10"
               >
                 <div className="flex flex-col items-center text-center">
-                  {/* Avatar */}
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-4xl mb-6">
-                    {testimonials[currentIndex].avatar}
-                  </div>
+                  {/* Image if present */}
+                  {testimonials[currentIndex].image && (
+                    <img src={testimonials[currentIndex].image} alt={testimonials[currentIndex].author} className="w-20 h-20 rounded-full object-cover mb-6" />
+                  )}
+                  {/* Avatar if no image */}
+                  {!testimonials[currentIndex].image && (
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-4xl mb-6">
+                      {testimonials[currentIndex].avatar}
+                    </div>
+                  )}
                   
                   {/* Quote */}
                   <div className="mb-6">
                     <span className="text-4xl text-primary">"</span>
-                    <p className="text-lg text-text-primary italic">
+                    <p className="text-xs md:text-lg text-text-primary italic max-h-48 overflow-y-auto pr-2">
                       {testimonials[currentIndex].quote}
                     </p>
                     <span className="text-4xl text-primary float-right">"</span>
                   </div>
                   
                   {/* Author Info */}
-                  <h4 className="font-bold text-lg">{testimonials[currentIndex].author}</h4>
-                  <p className="text-text-secondary text-sm mb-3">{testimonials[currentIndex].role}</p>
-                  
-                  {/* Rating */}
-                  <div className="flex items-center justify-center gap-1 text-lg">
-                    {renderStars(testimonials[currentIndex].rating)}
-                  </div>
-                  
-                  {/* Gamified Badge */}
-                  <div className="mt-6 bg-background/50 px-4 py-1 rounded-full">
-                    <span className="text-xs font-display text-primary">+{Math.floor(testimonials[currentIndex].rating * 200)} XP</span>
-                  </div>
+                  <h4 className="font-bold text-lg mt-2">{testimonials[currentIndex].author}</h4>
+                  <p className="text-text-secondary text-sm mb-3 mt-1">{testimonials[currentIndex].role}</p>
                 </div>
               </motion.div>
             </AnimatePresence>

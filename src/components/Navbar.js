@@ -49,31 +49,40 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="font-display text-xl text-white"
-          >
-            <span className="text-primary">Atlas</span>
-            <span className="text-secondary">Moth</span>
-          </motion.div>
+          <img src="/Logo.png" alt="AtlasMoth logo" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center space-x-8">
-          <NavLink to="/" active={location.pathname === "/"}>
+        <div className="hidden md:flex items-center space-x-8 mx-auto justify-center">
+          <NavLink
+            to="/"
+            active={location.pathname === "/" && (!location.hash || location.hash === "#hero")}
+            idTarget="hero"
+          >
             Home
           </NavLink>
-          <NavLink to="/#services" active={location.hash === "#services"}>
+          <NavLink
+            to="/#services"
+            active={location.hash === "#services"}
+            idTarget="services"
+          >
             Services
           </NavLink>
-          <NavLink to="/#how-we-work" active={location.hash === "#how-we-work"}>
+          <NavLink
+            to="/#how-we-work"
+            active={location.hash === "#how-we-work"}
+            idTarget="how-we-work"
+          >
             How We Work
           </NavLink>
           <NavLink to="/blog" active={location.pathname === "/blog"}>
             Blog
           </NavLink>
-          <NavLink to="/#contact" active={location.hash === "#contact"}>
+          <NavLink
+            to="/#contact"
+            active={location.hash === "#contact"}
+            idTarget="contact"
+          >
             Contact
           </NavLink>
         </div>
@@ -86,9 +95,10 @@ const Navbar = () => {
         >
           <a 
             href="#contact"
-            className="game-button bg-primary hover:bg-primary-dark text-white font-display text-xs px-4 py-2 rounded-full animate-glow"
+            className="game-button font-display font-bold text-xs px-4 py-2 rounded-full border shadow-[0_0_12px_2px_#9D1F15]"
+            style={{ backgroundColor: '#FBF7BA', color: '#9D1F15', borderColor: '#9D1F15' }}
           >
-            ✨ Get Free UX Audit
+            Get Free UX Audit
           </a>
         </motion.div>
 
@@ -156,8 +166,8 @@ const Navbar = () => {
             </nav>
             <a
               href="#contact"
-              className="game-button bg-primary hover:bg-primary-dark text-white font-display text-base px-6 py-3 rounded-full animate-glow mt-10 shadow-lg focus:outline-none focus:ring-2 focus:ring-primary"
-              style={{ minHeight: 48 }}
+              className="game-button font-display font-bold text-base px-6 py-3 rounded-full animate-glow mt-10 shadow-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              style={{ minHeight: 48, backgroundColor: '#FBF7BA', color: '#9D1F15' }}
               onClick={() => setMenuOpen(false)}
               tabIndex={0}
             >
@@ -171,26 +181,48 @@ const Navbar = () => {
 };
 
 // NavLink component with active state styling
-const NavLink = ({ children, to, active }) => {
+
+const NavLink = ({ children, to, active, idTarget, onClick }) => {
+  const [hovered, setHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  const showUnderline = hovered || active || isClicked;
+  
+  // Reset clicked state when active state changes
+  useEffect(() => {
+    if (active) setIsClicked(false);
+  }, [active]);
+  
   return (
     <Link
       to={to}
       className={`nav-link relative font-medium text-sm px-1 py-2 transition-all duration-300 ${
-        active 
+        active || isClicked 
           ? 'text-primary' 
-          : 'text-text-primary hover:text-primary'
+          : 'text-text-primary'
       }`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
+      onClick={e => {
+        setIsClicked(true); // Immediately set clicked state
+        if (idTarget && window.location.pathname === '/' && document.getElementById(idTarget)) {
+          e.preventDefault();
+          document.getElementById(idTarget).scrollIntoView({ behavior: 'smooth' });
+          window.history.replaceState(null, '', `/#${idTarget}`);
+        }
+        if (onClick) onClick(e);
+      }}
     >
       {children}
-      {active && (
-        <motion.div
-          layoutId="underline"
-          className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        />
-      )}
+      <motion.div
+        layoutId="underline"
+        className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"
+        initial={{ opacity: 0, scaleX: 0 }}
+        animate={{ opacity: showUnderline ? 1 : 0, scaleX: showUnderline ? 1 : 0 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+        style={{ transformOrigin: 'center' }}
+      />
     </Link>
   );
 };
