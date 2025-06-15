@@ -36,7 +36,7 @@ const CookieConsent = () => {
               <svg viewBox="0 0 352 512" width={20} height={20}><path fill="#9D1F15" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
             </button>
           </div>
-          <p className="m-0 text-sm leading-relaxed text-text-secondary max-w-2xl">
+          <p className="m-0 text-sm leading-relaxed text-black max-w-2xl">
             We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By using our site, you acknowledge that you have read and understand our{' '}
             <Link to="/privacy" className="text-secondary font-medium border-b border-transparent hover:border-secondary transition">Privacy Policy</Link>.
           </p>

@@ -4,7 +4,7 @@ import MusicToggle from './MusicToggle';
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-start pb-10 overflow-hidden bg-background" style={{ paddingTop: '210px' }}>
+    <section id="hero" className="relative min-h-screen flex items-start pb-10 overflow-hidden bg-background" style={{ paddingTop: '90px' }}>
       {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none z-0">
         {/* Pixel floating squares */}

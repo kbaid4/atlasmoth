@@ -9,6 +9,9 @@ const Blog = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentCategory, setCurrentCategory] = useState('all');
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState(null);
+  const [newsletterLoading, setNewsletterLoading] = useState(false);
 
   // Sample blog post data (will be replaced with actual data from Supabase)
   const samplePosts = [
@@ -21,56 +24,6 @@ const Blog = () => {
       created_at: "2025-05-15",
       reading_time: "6 min",
       featured_image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 2,
-      title: "Implementing Points, Badges, and Leaderboards: A Technical Guide",
-      slug: "implementing-pbl-system",
-      excerpt: "A hands-on tutorial for developers on how to build robust gamification systems that scale.",
-      category: "Development",
-      created_at: "2025-05-08",
-      reading_time: "9 min",
-      featured_image: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 3,
-      title: "Case Study: How We Increased User Retention by 70%",
-      slug: "user-retention-case-study",
-      excerpt: "A detailed breakdown of our approach to gamifying a finance app that transformed user engagement.",
-      category: "Case Study",
-      created_at: "2025-04-22",
-      reading_time: "7 min",
-      featured_image: "https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 4,
-      title: "Designing for Play: Creating Joyful User Experiences",
-      slug: "designing-for-play",
-      excerpt: "Learn how to incorporate playfulness into your design process without sacrificing professionalism.",
-      category: "UX Design",
-      created_at: "2025-04-10",
-      reading_time: "5 min",
-      featured_image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 5,
-      title: "The Future of Gamified Interfaces: Trends to Watch",
-      slug: "future-gamified-interfaces",
-      excerpt: "An analysis of emerging technologies that will shape the next generation of interactive experiences.",
-      category: "Trends",
-      created_at: "2025-03-28",
-      reading_time: "8 min",
-      featured_image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 6,
-      title: "Building Accessibility into Gamified Systems",
-      slug: "accessibility-gamified-systems",
-      excerpt: "How to ensure your gamified interfaces remain accessible to users with diverse needs and abilities.",
-      category: "Accessibility",
-      created_at: "2025-03-15",
-      reading_time: "6 min",
-      featured_image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -124,9 +77,9 @@ const Blog = () => {
             >
               <span className="font-display text-xs">KNOWLEDGE GEMS</span>
             </motion.div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">AtlasMoth Blog</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 ">AtlasMoth Blog</h1>
             <p className="text-text-secondary max-w-xl mx-auto">
-              Discover insights, tutorials, and case studies about gamification, UX design, and digital strategy.
+              Discover insights, tutorials, and case studies about gamification, design, and engineering.
             </p>
           </motion.div>
 
@@ -169,40 +122,6 @@ const Blog = () => {
               )}
             </>
           )}
-
-          {/* Newsletter Section */}
-          <motion.div 
-            className="mt-24 bg-surface/50 backdrop-blur-sm rounded-2xl p-8 md:p-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="md:flex items-center justify-between">
-              <div className="md:w-1/2 mb-6 md:mb-0">
-                <h3 className="text-2xl font-bold mb-2">Stay in the loop</h3>
-                <p className="text-text-secondary">
-                  Subscribe to our newsletter for exclusive design tips, tutorials, and industry insights.
-                </p>
-              </div>
-              <div className="md:w-1/2">
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <input 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    className="px-4 py-3 bg-background rounded-lg flex-grow focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
-                  />
-                  <motion.button
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="game-button whitespace-nowrap"
-                  >
-                    🔔 Get Notified
-                  </motion.button>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </section>
         <Footer />
       </main>

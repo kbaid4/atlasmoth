@@ -35,12 +35,12 @@ const ClientsStrip = () => {
       <div className="relative">
         <motion.div
           className="flex space-x-16 whitespace-nowrap"
-          animate={{ x: [0, "-50%"] }}
+          animate={{ x: [0, "-180%"] }}
           transition={{ 
             x: {
               repeat: Infinity,
               repeatType: "loop",
-              duration: 30,
+              duration: 15,
               ease: "linear"
             },
           }}
